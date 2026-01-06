@@ -146,21 +146,9 @@ html { scroll-behavior: smooth; }
 .theme-btn:hover { transform: rotate(20deg) scale(1.1); }
 
 /* --- SECCIONES --- */
-/* 1. SECCIONES NORMALES (Acerca, Proyectos...) - Altura automática */
-section {
-    padding: 120px 10% 50px; 
-    min-height: auto;        /* <--- ESTO ARREGLA EL HUECO */
-    position: relative;
-    z-index: 1;
-}
-
-/* 2. SOLO LA PORTADA (Inicio) SE QUEDA PANTALLA COMPLETA */
-.hero {
-    min-height: 100vh;       
-    display: flex;
-    flex-direction: column;  
-    align-items: center;     
-    justify-content: center; 
+section { 
+    padding: 100px 10%; min-height: 100vh; display: flex; align-items: center; justify-content: center; 
+    position: relative; z-index: 1; 
 }
 
 /* Hero */
@@ -341,4 +329,3 @@ body.dark-mode .spinning-triangle {
         border-left: none; /* Quitamos borde extra si hubiera */
     }
 }
-
