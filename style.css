@@ -112,11 +112,26 @@ html { scroll-behavior: smooth; }
 }
 
 /* --- NAVBAR --- */
+/* REEMPLAZAR EL BLOQUE DE .navbar (Líneas 115-120 aprox) */
 .navbar {
-    position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
-    background: var(--navbar-bg); backdrop-filter: blur(10px);
-    padding: 10px 25px; border-radius: 50px;
-    box-shadow: var(--shadow); display: flex; gap: 15px; align-items: center; z-index: 1000;
+    position: fixed; 
+    top: 20px;         /* ESTO LA PONE ARRIBA */
+    left: 50%; 
+    transform: translateX(-50%);
+    background: var(--navbar-bg); 
+    backdrop-filter: blur(10px);
+    padding: 10px 25px; 
+    border-radius: 50px;
+    box-shadow: var(--shadow); 
+    display: flex; 
+    gap: 15px; 
+    align-items: center; 
+    z-index: 1000;
+    
+    /* Aseguramos que no se vaya abajo */
+    bottom: auto; 
+    width: auto; 
+    justify-content: center;
 }
 .nav-links { display: flex; gap: 5px; }
 .nav-link { 
@@ -276,40 +291,41 @@ body.dark-mode .spinning-triangle {
     background: rgba(255, 255, 255, 0.1) !important; /* BLANCO */
 }
 
-/* --- BARRA DE NAVEGACIÓN MÓVIL (CORREGIDA) --- */
+/* --- VERSIÓN MÓVIL (PEGAR AL FINAL) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Barra pegada abajo */
     .navbar {
         top: auto;        
-        bottom: 20px;     
-        width: 92%;       /* Un poco más ancha para tener espacio */
-        padding: 12px 15px; /* Menos relleno a los lados */
-        justify-content: space-between; 
-        gap: 5px; /* Espacio mínimo entre el grupo de links y el botón de tema */
-    }
-
-    /* Contenedor de los 4 enlaces (Inicio, Acerca, Proyectos, Servicios) */
-    .navbar .nav-links {
-        display: flex;          /* Para poder ordenarlos */
-        justify-content: space-between; /* Que se repartan el espacio */
-        width: 85%;             /* Que ocupen la mayoría de la barra */
-    }
-
-    .nav-link {
-        padding: 8px; /* Botones más compactos */
-        justify-content: center;
-    }
-
-    .nav-link span { display: none; } /* Ocultamos el texto */
-    
-    .nav-link i { 
-        font-size: 1.3rem; /* Íconos un poquito más grandes para el dedo */
-        margin: 0; 
-    }
-
-    /* Botón de Modo Oscuro */
-    .theme-btn {
-        width: 15%; /* El espacio que sobra es para este botón */
+        bottom: 15px;     
+        width: 95%;       
+        padding: 10px 15px; 
+        
         display: flex;
-        justify-content: center;
-        border-left: 1px solid rgba(128,128,128,0.3); /* Una rayita para separarlo */
-        padding-left: 10px;
+        justify-content: space-between; 
+        gap: 0;
     }
+
+    /* 2. Los 4 botones de navegación */
+    .navbar .nav-links {
+        display: flex;
+        width: 100%;           
+        justify-content: space-between; 
+        padding-right: 15px;   
+        border-right: 1px solid rgba(128,128,128,0.3); 
+    }
+
+    /* 3. Ajuste de botones */
+    .nav-link { padding: 5px; }
+    .nav-link i { font-size: 1.2rem; margin: 0; }
+    .nav-link span { display: none; } /* Oculta texto */
+
+    /* 4. Botón de tema */
+    .theme-btn {
+        width: auto;
+        padding-left: 15px; 
+        display: flex;
+        align-items: center;
+        border-left: none; /* Quitamos borde extra si hubiera */
+    }
+}
