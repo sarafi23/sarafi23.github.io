@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    /* --- REEMPLAZA EL BLOQUE DEL LOADER (Líneas 4-8) CON ESTO: --- */
     const loader = document.getElementById('loader');
     const textPercent = document.getElementById('loading-text');
     let progress = 0;
 
+    // Esta función se repite cada 25 milisegundos para subir el número
     const interval = setInterval(() => {
         progress++;
         // Actualiza el texto en pantalla
@@ -11,15 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
             textPercent.textContent = `CARGANDO... ${progress}%`;
         }
 
+        // Cuando llega a 100, detiene la cuenta y oculta la pantalla
         if (progress >= 100) {
             clearInterval(interval);
             setTimeout(() => {
                 loader.style.opacity = '0';
                 loader.style.visibility = 'hidden';
-            }, 500); 
+            }, 500); // Espera medio segundo extra al llegar a 100%
         }
-    }, 25); 
+    }, 25); // Velocidad de carga (más bajo = más rápido)
 
+    // --- 2. GENERAR PARTÍCULAS FLOTANTES ---
     const particlesContainer = document.getElementById('particles-background');
     const particleCount = 25; 
 
@@ -27,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const particle = document.createElement('div');
         particle.classList.add('floating-particle');
         
+        // Tamaño, posición y animación aleatoria
         const size = Math.random() * 5 + 2; 
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
@@ -40,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesContainer.appendChild(particle);
     }
     createSpinningTriangles();
+    // --- 3. TYPEWRITER (Datos de Alberto) ---
     const textElement = document.getElementById('typing-text');
     const words = ["Desarrollador Full Stack", "Data Analyst", "Entusiasta de IA", "Safari23"];
     let wordIndex = 0;
@@ -70,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     type();
 
-    // --- (Menú activo) ---
+    // --- 4. SCROLL SPY (Menú activo) ---
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -90,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- MODO OSCURO / CLARO ---
+    // --- 5. MODO OSCURO / CLARO ---
     const themeBtn = document.getElementById('theme-toggle');
     const body = document.body;
     const icon = themeBtn.querySelector('i');
@@ -136,5 +142,4 @@ function createSpinningTriangles() {
             }
         }
     });
-
 }
