@@ -1,18 +1,25 @@
-/* --- COLORES --- */
+/* --- VARIABLES DE COLORES --- */
 :root {
+    /* MODO CLARO (Default) */
     --bg-color: #ffffff;
     --text-main: #111;
     --text-gray: #666;
     --card-bg: #fff;
-    --navbar-bg: rgba(255, 255, 255, 0.95); 
+    --navbar-bg: rgba(255, 255, 255, 0.95); /* Un poco menos transparente para que la sombra se note más */
     --btn-bg: #000;
     --btn-text: #fff;
-    --shadow: 0 20px 40px rgba(0,0,0,0.15);     
+    
+    /* --- AQUÍ ESTÁ EL CAMBIO PARA MODO CLARO --- */
+    /* Antes era 0.08 (muy suave), ahora es 0.15 (más notorio) y con más desenfoque */
+    --shadow: 0 20px 40px rgba(0,0,0,0.15); 
+    
     --particle-color: rgba(0, 0, 0, 0.8);
     --active-pill: #000;
     --active-text: #fff;
     --tags-bg: #f3f3f3;
 }
+
+/* MODO OSCURO */
 body.dark-mode {
     --bg-color: #0a0a0a;
     --text-main: #f0f0f0;
@@ -21,12 +28,19 @@ body.dark-mode {
     --navbar-bg: rgba(20, 20, 20, 0.95);
     --btn-bg: #fff;
     --btn-text: #000;
+    
+    /* --- AQUÍ ESTÁ EL CAMBIO PARA MODO OSCURO --- */
+    /* Hacemos la sombra un poco más difusa y oscura */
     --shadow: 0 25px 50px rgba(0,0,0,0.7);
+
     --particle-color: rgba(255, 255, 255, 0.8);
     --active-pill: #fff;
     --active-text: #000;
     --tags-bg: #333;
 }
+
+/* ... (El resto del CSS sigue igual) ... */
+
 /* --- RESET Y GLOBALES --- */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
@@ -38,6 +52,8 @@ body {
     transition: background 0.3s ease, color 0.3s ease;
 }
 html { scroll-behavior: smooth; }
+
+/* --- PANTALLA DE CARGA (LOADER) --- */
 #loader {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     background: #000; z-index: 99999;
@@ -45,9 +61,11 @@ html { scroll-behavior: smooth; }
     color: white; overflow: hidden;
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
+
 .loader-content { z-index: 10; text-align: center; }
 .welcome-text { display: flex; justify-content: center; font-size: 5rem; font-weight: 700; margin-bottom: 30px; letter-spacing: -2px; }
 .welcome-text span { opacity: 0; transform: translateY(50px); animation: fadeInUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; }
+/* Retrasos para letras */
 .welcome-text span:nth-child(1) { animation-delay: 0.1s; }
 .welcome-text span:nth-child(2) { animation-delay: 0.15s; }
 .welcome-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -76,13 +94,14 @@ html { scroll-behavior: smooth; }
 .s5 { width: 3px; height: 3px; top: 40%; left: 90%; animation-duration: 2.8s; animation-delay: 0.8s; }
 @keyframes twinkle { 0% { opacity: 0; transform: scale(0.5); } 50% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(0.5); } }
 
+/* --- FONDO DE PARTÍCULAS FLOTANTES --- */
 #particles-background {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     z-index: 0; pointer-events: none;
 }
 .floating-particle {
     position: absolute; border-radius: 50%;
-    background: var(--particle-color); 
+    background: var(--particle-color); /* Cambia según el tema */
     animation: floatUp linear infinite;
 }
 @keyframes floatUp {
@@ -93,9 +112,10 @@ html { scroll-behavior: smooth; }
 }
 
 /* --- NAVBAR --- */
+/* REEMPLAZAR EL BLOQUE DE .navbar (Líneas 115-120 aprox) */
 .navbar {
     position: fixed; 
-    top: 20px;         
+    top: 20px;         /* ESTO LA PONE ARRIBA */
     left: 50%; 
     transform: translateX(-50%);
     background: var(--navbar-bg); 
@@ -107,6 +127,8 @@ html { scroll-behavior: smooth; }
     gap: 15px; 
     align-items: center; 
     z-index: 1000;
+    
+    /* Aseguramos que no se vaya abajo */
     bottom: auto; 
     width: auto; 
     justify-content: center;
@@ -123,10 +145,13 @@ html { scroll-behavior: smooth; }
 }
 .theme-btn:hover { transform: rotate(20deg) scale(1.1); }
 
+/* --- SECCIONES --- */
 section { 
     padding: 100px 10%; min-height: 100vh; display: flex; align-items: center; justify-content: center; 
     position: relative; z-index: 1; 
 }
+
+/* Hero */
 .hero { gap: 50px; }
 .hero h1 { font-size: 3.5rem; line-height: 1.2; }
 .typewriter-box { 
@@ -143,6 +168,7 @@ section {
 .btn-outline { border: 2px solid #ccc; color: var(--text-main); }
 .btn:hover { transform: translateY(-3px); }
 
+/* About */
 .about { gap: 50px; }
 .about-img img { width: 400px; height: 500px; object-fit: cover; border-radius: 20px; box-shadow: var(--shadow); }
 .about-info h2 { font-size: 2.5rem; margin-bottom: 30px; }
@@ -151,6 +177,7 @@ section {
 .tags { display: flex; gap: 10px; flex-wrap: wrap; }
 .tags span { background: var(--tags-bg); padding: 5px 15px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
 
+/* Grid de Proyectos y Servicios */
 .projects, .services { flex-direction: column; text-align: center; }
 .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
 .section-title p { color: var(--text-gray); margin-bottom: 50px; }
@@ -171,7 +198,7 @@ section {
 .cta-box { margin-top: 50px; }
 .big { padding: 15px 40px; font-size: 1.1rem; }
 
-/* Responsive */
+/* Responsive para celular */
 @media(max-width: 768px) {
     .hero, .about { flex-direction: column-reverse; text-align: center; }
     .hero-img img, .about-img img { width: 100%; max-width: 350px; height: auto; }
@@ -179,47 +206,57 @@ section {
     .nav-link span { display: none; } /* Ocultar texto en menú móvil para ahorrar espacio */
     .welcome-text { font-size: 3rem; }
 }
+/* =========================================
+   NUEVOS EFECTOS DE MOVIMIENTO (Micro-interacciones)
+   ========================================= */
 
 /* 1. HABILIDADES COMO BOTONES (Efecto "Pop") */
 .tags span, .card-tags span {
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    cursor: pointer; 
-    border: 1px solid transparent; 
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Rebote suave */
+    cursor: pointer; /* Cambia el cursor a manita */
+    border: 1px solid transparent; /* Prepara el borde */
     position: relative;
     top: 0;
 }
 
+/* Al pasar el mouse por encima de una habilidad */
 .tags span:hover, .card-tags span:hover {
-    background-color: var(--btn-bg); 
-    color: var(--btn-text);          
-    transform: translateY(-5px) scale(1.05); 
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15); 
+    background-color: var(--btn-bg); /* Se pone Negro (o Blanco en modo oscuro) */
+    color: var(--btn-text);          /* El texto cambia al color opuesto */
+    transform: translateY(-5px) scale(1.05); /* Sube 5px y crece un poquito */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra proyectada */
 }
 
+/* 2. TEXTOS QUE FLOTAN AL SEÑALARLOS */
+/* Aplicamos esto a los Títulos (h1, h2, h3) para que reaccionen */
 h1, h2, h3 {
     transition: transform 0.3s ease, text-shadow 0.3s ease;
-    cursor: default; 
-
-h1:hover, h2:hover, h3:hover {
-    transform: translateY(-3px); 
-    text-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+    cursor: default; /* Cursor normal */
 }
 
+h1:hover, h2:hover, h3:hover {
+    transform: translateY(-3px); /* Se mueve un poco hacia arriba */
+    text-shadow: 0 15px 30px rgba(0,0,0,0.1); /* Sombra suave detrás del texto */
+}
+
+/* 3. MEJORA EN LAS TARJETAS (Para que el movimiento sea más fluido) */
 .card, .service-card {
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
 }
 
 .card:hover, .service-card:hover {
-    transform: translateY(-12px); 
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15); 
+    transform: translateY(-12px); /* Sube más que antes */
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15); /* Sombra más profunda */
 }
 
+/* 4. BOTONES DEL MENÚ (Navbar) */
 .nav-link {
     transition: all 0.3s ease;
 }
 .nav-link:hover {
-    transform: translateY(-2px); 
+    transform: translateY(-2px); /* Pequeño salto en el menú */
 }
+/* --- FONDO DE TRIÁNGULOS (PEGAR AL FINAL) --- */
 #triangles-background {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -231,12 +268,12 @@ h1:hover, h2:hover, h3:hover {
 .spinning-triangle {
     position: absolute;
     clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    background: rgba(0, 0, 0, 0.03); 
+    background: rgba(0, 0, 0, 0.03); /* Gris casi invisible */
     animation: spinFloat linear infinite;
 }
 
 body.dark-mode .spinning-triangle {
-    background: rgba(255, 255, 255, 0.05); 
+    background: rgba(255, 255, 255, 0.05); /* Blanco pálido en modo oscuro */
 }
 
 @keyframes spinFloat {
@@ -245,6 +282,7 @@ body.dark-mode .spinning-triangle {
     100% { transform: translateY(-20vh) rotate(360deg) scale(1.2); opacity: 0; }
 }
 
+/* --- PEGAR AL FINAL DEL CSS --- */
 #loader-triangles {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     z-index: 1; pointer-events: none; overflow: hidden;
@@ -253,8 +291,10 @@ body.dark-mode .spinning-triangle {
     background: rgba(255, 255, 255, 0.1) !important; /* BLANCO */
 }
 
+/* --- VERSIÓN MÓVIL (PEGAR AL FINAL) --- */
 @media (max-width: 768px) {
     
+    /* 1. Barra pegada abajo */
     .navbar {
         top: auto;        
         bottom: 15px;     
@@ -265,7 +305,8 @@ body.dark-mode .spinning-triangle {
         justify-content: space-between; 
         gap: 0;
     }
-    
+
+    /* 2. Los 4 botones de navegación */
     .navbar .nav-links {
         display: flex;
         width: 100%;           
@@ -274,16 +315,17 @@ body.dark-mode .spinning-triangle {
         border-right: 1px solid rgba(128,128,128,0.3); 
     }
 
+    /* 3. Ajuste de botones */
     .nav-link { padding: 5px; }
     .nav-link i { font-size: 1.2rem; margin: 0; }
-    .nav-link span { display: none; } 
+    .nav-link span { display: none; } /* Oculta texto */
 
+    /* 4. Botón de tema */
     .theme-btn {
         width: auto;
         padding-left: 15px; 
         display: flex;
         align-items: center;
-        border-left: none; 
+        border-left: none; /* Quitamos borde extra si hubiera */
     }
 }
-
