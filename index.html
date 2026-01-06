@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio | Alberto Rodríguez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="loader">
+        <div id="loader-triangles"></div>
+        <div class="stars-container">
+            <div class="star-dot s1"></div> <div class="star-dot s2"></div> <div class="star-dot s3"></div>
+            <div class="star-dot s4"></div> <div class="star-dot s5"></div> <div class="star-dot s6"></div>
+            <div class="star-dot s7"></div> <div class="star-dot s8"></div> <div class="star-dot s9"></div>
+        </div>
+        
+        <div class="loader-content">
+            <h1 class="welcome-text">
+                <span>B</span><span>i</span><span>e</span><span>n</span><span>v</span><span>e</span><span>n</span><span>i</span><span>d</span><span>o</span>
+            </h1>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+                <p id="loading-text" style="margin-top: 10px; font-weight: bold;">CARGANDO... 0%</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="particles-background"></div>
+    <div id="triangles-background"></div>
+    <nav class="navbar">
+        <div class="nav-links">
+            <a href="#inicio" class="nav-link active"><i class="fas fa-home"></i> Inicio</a>
+            <a href="#acerca" class="nav-link"><i class="fas fa-user"></i> Acerca</a>
+            <a href="#proyectos" class="nav-link"><i class="fas fa-folder"></i> Proyectos</a>
+            <a href="#servicios" class="nav-link"><i class="fas fa-tools"></i> Servicios</a>
+        </div>
+        
+        <button id="theme-toggle" class="theme-btn">
+            <i class="fas fa-moon"></i>
+        </button>
+    </nav>
+
+    <section id="inicio" class="hero">
+        <div class="hero-text">
+            <h1>Hola, soy <strong>Alberto </strong></h1>
+            <div class="typewriter-box">
+                <span id="typing-text"></span><span class="cursor">|</span>
+            </div>
+            <p class="bio">
+                Estudiante de <strong>Ciencias de la Computación</strong> en Ecuador. 
+                Transformo datos complejos en soluciones inteligentes usando Python, SQL y tecnologías Web.
+                Conocido en el mundo digital como <em>safari23</em>.
+            </p>
+            <div class="buttons">
+                <a href="mailto:albertorzb17@gmail.com" class="btn btn-primary">Contáctame <i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/sarafi23" target="_blank" class="btn btn-outline">GitHub <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="img/avatar.jpeg" alt="Alberto Rodríguez"> 
+        </div>
+    </section>
+
+    <section id="acerca" class="about">
+        <div class="about-img">
+            <img src="img/setup.jpeg" alt="Mi Espacio de Trabajo"> 
+        </div>
+        <div class="about-info">
+            <h2><strong>Acerca de mí</strong></h2>
+            
+            <div class="info-item">
+                <h3>Alberto Carlos Rodríguez</h3>
+                <p>
+                    Apasionado por el desarrollo de software y el análisis de datos. <p></p>
+                    Tengo experiencia en creación de modelos de Machine Learning, <p></p>
+                    gestión de bases de datos y desarrollo Full Stack.<p></p>
+                    Mi meta es convertirme en un referente en programación este año.
+                </p>
+            </div>
+
+            <div class="info-item">
+                <h3>| Educación</h3>
+                <p><strong>(UNEMI)Ingeniería en Software</strong></p>
+                <p>Ecuador (En curso)</p>
+            </div>
+
+            <div class="info-item">
+                <h3>| Stack Tecnológico</h3>
+                <div class="tags">
+                    <span>Python</span><span>SQL</span><span>Power BI</span>
+                    <span>React</span><span>Node.js</span><span>Docker</span>
+                    <span>Machine Learning</span><span>Git</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="projects">
+        <div class="section-title">
+            <h2>Mis <strong>Proyectos</strong></h2>
+            <p>Una selección de mis trabajos en IA, Datos y Desarrollo</p>
+        </div>
+
+        <div class="grid-cards">
+            
+            <div class="card">
+                <img src="img/proy1.jpeg" alt="Mango Leaf AI">
+                <div class="card-body">
+                    <h3>MangoLeaf AI</h3>
+                    <p>Sistema de Deep Learning para la clasificación automática de enfermedades en hojas de mango (Dataset MangoLeafBD).</p>
+                    <div class="card-tags">
+                        <span>Python</span><span>TensorFlow</span><span>Vision</span>
+                    </div>
+                    <a href="#" class="link-btn">Ver Código <i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="img/proy2.jpeg" alt="AgroData Analytics">
+                <div class="card-body">
+                    <h3>Milagro Transport</h3>
+                    <p>Análisis de datos de transporte público en Milagro, Ecuador, optimizando rutas y tiempos mediante Python y Pandas.</p>
+                    <div class="card-tags">
+                        <span>Python</span><span>Data Analysis</span><span>Pandas</span>
+                    </div>
+                    <a href="#" class="link-btn">Ver Análisis <i class="fas fa-chart-bar"></i></a>
+                </div>
+            </div>
+
+             <div class="card">
+                <img src="img/proy3.jpeg" alt="BioSeq Analyzer">
+                <div class="card-body">
+                    <h3>AWS Smart Gallery</h3>
+                    <p>Sistema inteligente en la nube que organiza fotos automáticamente usando reconocimiento facial (DeepFace) y YOLO en AWS.</p>
+                    <div class="card-tags">
+                        <span>AWS</span><span>Docker</span><span>AI/YOLO</span>
+                    </div>
+                    <a href="#" class="link-btn">Ver Proyecto <i class="fab fa-aws"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="servicios" class="services">
+        <div class="section-title">
+            <h2>Mis <strong>Servicios</strong></h2>
+            <p>¿En qué puedo ayudarte?</p>
+        </div>
+        <div class="grid-services">
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-database"></i></div>
+                <h3>Análisis de Datos</h3>
+                <p>Extracción, limpieza (ETL) y visualización de datos complejos usando Python y Power BI.</p>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-brain"></i></div>
+                <h3>Machine Learning</h3>
+                <p>Desarrollo de modelos predictivos y clasificación de imágenes (Computer Vision).</p>
+            </div>
+            <div class="service-card">
+                <div class="icon"><i class="fas fa-laptop-code"></i></div>
+                <h3>Desarrollo Web</h3>
+                <p>Creación de sitios web modernos y funcionales con React y tecnologías actuales.</p>
+            </div>
+        </div>
+        <div class="cta-box">
+             <a href="mailto:albertorzb17@gmail.com" class="btn btn-primary big">Contratar</a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
